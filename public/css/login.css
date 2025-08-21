@@ -110,11 +110,11 @@
     display: block;
     margin: 10px auto 0 auto; 
     width: 200px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color var(--color-secundario) 0.3s ease, transform 0.2s ease;
 }
 
 #form-login > .login:hover {
-    transform: scale(1.05);
+    transform: scale(1.05) !important;
 }
 
 .fade-in {

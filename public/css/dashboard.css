@@ -118,3 +118,88 @@ body {
 .profile-info {
     transition: opacity 0.2s ease;
 }
+
+.breadcrumb{
+    background-color: var(--color-terciario) !important;
+    width: 130px;
+    justify-content: center;
+    border-radius: 10px !important;
+}
+
+.breadcrumb-item{
+    font-size: 16px;
+    color: white;
+    font-weight:bold;
+}
+
+.breadcrumb-item a {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+#titulo{
+    font-weight: bolder;
+}
+
+.btn-crear {
+    background-color: var(--color-primario) !important;
+    border: var(--color-terciario) solid 1px !important;
+    color: white !important;
+    padding: 10px 18px;
+    margin: 0 0 20px 0;
+    border-radius: 50px;
+    font-weight: 500;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-crear:hover,
+.btn-crear:focus,
+.btn-crear:active {
+    background-color: var(--color-terciario) !important;
+    border-color: var(--color-terciario) !important;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0px 6px 12px rgba(0,0,0,0.15);
+}
+
+.modal-title{
+    font-weight: bold;
+}
+
+.form-label{
+    font-weight: bold;
+}
+
+.form-control.input-form{
+    border: var(--color-terciario) solid 1px !important;
+    border-radius: 20px !important;
+}
+
+.form-control.input-form:focus, .form-control.input-form:active {
+    border: 2px solid var(--color-cuartiario) !important; 
+    box-shadow: 0 0 0 2px var(--color-terciario) !important; 
+}
+
+.ts-wrapper{
+    border-radius: 20px;
+    border: 1px solid var(--color-terciario);
+}
+
+.ts-wrapper:focus-within {
+    border: 2px solid var(--color-cuartiario) !important; 
+    box-shadow: 0 0 0 2px var(--color-terciario) !important; 
+}
+
+.ts-control{
+    border-radius: 20px;
+    border: none;
+}
+
+.ts-dropdown{
+    border-radius: 20px;
+}
+
+.dt-search{
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}

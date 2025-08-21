@@ -19,6 +19,6 @@ class Cliente extends Model
     ];
 
     public function tipoDocumento(){
-        return $this->belongsTo(TipoDocumento::class);
+        return $this->belongsTo(TipoDocumento::class, 'tipoDocumentoId');
     }
 }

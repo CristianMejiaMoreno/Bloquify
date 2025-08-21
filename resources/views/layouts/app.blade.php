@@ -14,6 +14,8 @@
     <link href="https://fonts.bunny.net/css?family=Raleway" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/css/tom-select.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
 
     @if(request()->is('login'))
         <link rel="stylesheet" href="{{ asset('css/login.css') }}">
@@ -29,59 +31,6 @@
 </head>
 <body>
     <div id="app">
-        {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav> --}}
             
         <div class="d-flex">
 
@@ -93,17 +42,17 @@
 
                         <div class="p-4">
                             <a class="logo-text fw-bold mb-0">{{ config('app.name', 'Laravel') }}</a>
-                            <p class="text-white small hide-on-collapse">Dashboard</p>
+                            <p class="text-white small hide-on-collapse">Panel administrativo</p>
                         </div>
 
                         <div class="nav flex-column">
-                            <a href="#" class="sidebar-link active text-decoration-none p-3">
+                            <a href="{{ route('home') }}" class="sidebar-link text-decoration-none p-3 {{ request()->routeIs('home') ? 'active' : '' }}">
                                 <i class="fas fa-home me-3"></i>
-                                <span class="hide-on-collapse">Dashboard</span>
+                                <span class="hide-on-collapse">Inicio</span>
                             </a>
-                            <a href="#" class="sidebar-link text-decoration-none p-3">
-                                <i class="fas fa-chart-bar me-3"></i>
-                                <span class="hide-on-collapse">Analytics</span>
+                            <a href="{{ route('Cliente.index') }}" class="sidebar-link text-decoration-none p-3 {{ request()->routeIs('Cliente.index') ? 'active' : '' }}">
+                                <i class="fas fa-solid fa-user me-3"></i>
+                                <span class="hide-on-collapse">Clientes</span>
                             </a>
                             <a href="#" class="sidebar-link text-decoration-none p-3">
                                 <i class="fas fa-users me-3"></i>
@@ -155,13 +104,17 @@
 
 
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/js/tom-select.complete.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
 
-    <script>
-        function toggleSidebar() {
-            const sidebar = document.querySelector('.sidebar');
-            sidebar.classList.toggle('collapsed');
-        }
-    </script>
+    @stack('scripts')
+
+
+    <script>const APP_URL = "{{ url('/') }}";</script>
+    <script src="{{ asset('js/app/scripts.js') }}"></script>
+    <script type="module" src="{{ asset('js/cliente/scripts.js') }}"></script>
+
 </body>
 </html>
 
