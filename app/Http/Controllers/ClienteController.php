@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ActualizarCliente;
 use App\Http\Requests\CrearCliente;
 use App\Models\Cliente;
 use App\Models\TipoDocumento;
@@ -63,7 +64,7 @@ class ClienteController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show(int $id)
     {
         try{
             $cliente = $this->clienteService->getClienteById($id);
@@ -78,26 +79,38 @@ class ClienteController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Cliente $cliente)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Cliente $cliente)
+    public function update(ActualizarCliente $request, int $id)
     {
-        //
+        try{
+            $cliente = $this->clienteService->updateCliente($id, $request->validated());
+
+            return response($cliente, 200);
+
+        }catch(Exception $e){
+            return response()->json([
+                "Error al actualizar el cliente"=>$e->getMessage()
+            ], 500);
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Cliente $cliente)
+    public function destroy(int $id)
     {
-        //
+        try
+        {
+            $cliente = $this->clienteService->deleteCliente($id);
+
+            return response('Se ha eliminado exitosamente', 200);
+
+        }catch(Exception $e)
+        {
+            return response()->json([
+                "Error al eliminar el cliente"=>$e->getMessage()
+            ], 500);
+        }
     }
 }

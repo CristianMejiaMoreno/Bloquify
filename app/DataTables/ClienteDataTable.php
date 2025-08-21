@@ -34,7 +34,7 @@ class ClienteDataTable extends DataTable
                     <button class="btn btn-sm btn-dark edit-btn" onclick="editarCliente('.$cliente->id.')" data-id="'.$cliente->id.'">
                         <i class="bi bi-pencil"></i>
                     </button>
-                    <button class="btn btn-sm btn-danger delete-btn" onclick="borrarMascota('.$cliente->id.')" data-id="'.$cliente->id.'">
+                    <button class="btn btn-sm btn-danger delete-btn" onclick="eliminarCliente('.$cliente->id.')" data-id="'.$cliente->id.'">
                         <i class="bi bi-trash"></i>
                     </button>
                 ';
