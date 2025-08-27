@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Dispositivo;
 use App\Models\TipoDocumento;
 use App\Models\Cliente;
 use App\Models\User;
@@ -24,6 +25,8 @@ class DatabaseSeeder extends Seeder
 
         // TipoDocumento::factory(7)->create();
 
-        Cliente::factory(100)->create();
+        // Cliente::factory(100)->create();
+
+        Dispositivo::factory(100)->create();
     }
 }

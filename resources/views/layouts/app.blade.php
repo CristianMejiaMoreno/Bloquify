@@ -54,9 +54,9 @@
                                 <i class="fas fa-solid fa-user me-3"></i>
                                 <span class="hide-on-collapse">Clientes</span>
                             </a>
-                            <a href="#" class="sidebar-link text-decoration-none p-3">
+                            <a href="{{ route('dispositivo.index') }}" class="sidebar-link text-decoration-none p-3 {{ request()->routeIs('dispositivo.index') ? 'active' : '' }}">
                                 <i class="fas fa-users me-3"></i>
-                                <span class="hide-on-collapse">Customers</span>
+                                <span class="hide-on-collapse">Dispositivos</span>
                             </a>
 
                             <a href="#" class="sidebar-link text-decoration-none p-3">

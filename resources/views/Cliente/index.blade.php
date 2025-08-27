@@ -10,10 +10,13 @@
 </nav>
 
 <h1 id="titulo">Clientes</h1>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, iste, sint perferendis officia mollitia saepe dicta asperiores aut beatae modi incidunt, suscipit et voluptatum odio. Qui fugit ex vero vel.</p>
+<p>
+    En esta sección podrás gestionar a todos tus clientes. 
+    Aquí puedes crear nuevos registros, editar la información existente o eliminar clientes cuando sea necesario. 
+    Mantén actualizada esta lista para un mejor control de tu negocio.
+</p>
 
-
-<button class="btn-crear" onclick="modalCliente()" id="btnCrear">BOTON DE PRUEBA</button>
+<button class="btn-crear" onclick="modalCliente()" id="btnCrear">Crear cliente</button>
 
 @include('Cliente.partials.modal')
 

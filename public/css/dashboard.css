@@ -67,10 +67,12 @@ body {
     min-height: 100vh;
     padding: 20px;
     transition: all 0.3s ease;
+    width: calc(100% - var(--sidebar-width)); 
 }
 
 .collapsed~.main {
     margin-left: var(--sidebar-width-collapsed);
+    width: calc(100% - var(--sidebar-width-collapsed)); 
 }
 
 .toggle-btn {
