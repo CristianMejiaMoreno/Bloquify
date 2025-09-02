@@ -13,7 +13,31 @@ class DispositivoController extends Controller
      */
     public function index(DispositivoDataTable $dispositivoDataTable)
     {
-        return $dispositivoDataTable->render('Dispositivo.index');
+        $marcas = [
+            'Samsung',
+            'Apple',
+            'Xiaomi',
+            'Motorola',
+            'Huawei',
+            'Nokia',
+            'Oppo',
+            'OnePlus'
+        ];
+
+        $condiciones = [
+            'nuevo',
+            'usado',
+            'reacondicionado'
+        ];
+
+        $usos = [
+            'disponible',
+            'asignado',
+            'bloqueado',
+            'mantenimiento'
+        ];
+
+        return $dispositivoDataTable->render('Dispositivo.index', compact('marcas', 'condiciones', 'usos'));
     }
 
     /**

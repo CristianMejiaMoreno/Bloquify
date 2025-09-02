@@ -205,3 +205,14 @@ body {
     padding-bottom: 20px;
     margin-bottom: 20px;
 }
+
+
+.form-control.input-text-area{
+    border: var(--color-terciario) solid 1px !important;
+    border-radius: 20px !important;
+}
+
+.form-control.input-text-area:focus, .form-control.input-text-area:active {
+    border: 2px solid var(--color-cuartiario) !important; 
+    box-shadow: 0 0 0 2px var(--color-terciario) !important; 
+}

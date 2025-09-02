@@ -55,7 +55,7 @@
                                 <span class="hide-on-collapse">Clientes</span>
                             </a>
                             <a href="{{ route('dispositivo.index') }}" class="sidebar-link text-decoration-none p-3 {{ request()->routeIs('dispositivo.index') ? 'active' : '' }}">
-                                <i class="fas fa-users me-3"></i>
+                                <i class="fa-solid fa-mobile-retro me-3"></i>
                                 <span class="hide-on-collapse">Dispositivos</span>
                             </a>
 
@@ -113,7 +113,15 @@
 
     <script>const APP_URL = "{{ url('/') }}";</script>
     <script src="{{ asset('js/app/scripts.js') }}"></script>
-    <script type="module" src="{{ asset('js/cliente/scripts.js') }}"></script>
+    <script type="module" src="{{ asset('js/auxiliares/scripts.js') }}"></script>
+
+    @if(request()->is('admin/Cliente'))
+        <script type="module" src="{{ asset('js/cliente/scripts.js') }}"></script>
+    @endif
+
+    @if(request()->is('admin/dispositivo'))
+        <script type="module" src="{{ asset('js/dispositivo/scripts.js') }}" defer></script>
+    @endif
 
 </body>
 </html>

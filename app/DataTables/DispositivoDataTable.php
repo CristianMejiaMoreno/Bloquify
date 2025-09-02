@@ -28,6 +28,29 @@ class DispositivoDataTable extends DataTable
             ->editColumn('updated_at', function($row){
                 return $row->updated_at ? $row->updated_at->format('d/m/Y H:i') : '';
             })
+            ->editColumn('estado_condicion', function($row) {
+                $estado = ucfirst($row->estado_condicion);
+
+                $class = match($row->estado_condicion){
+                    'nuevo' => 'success',
+                    'usado'=>'warning',
+                    'reacondicionado'=> 'info'
+                };
+
+                return '<span class="badge bg-'. $class .'">'. $estado .'</span>';
+            })
+            ->editColumn('estado_uso', function($row){
+                $estado = ucfirst($row->estado_uso);
+
+                $class = match($row->estado_uso){
+                    'disponible'=> 'success',
+                    'asignado'=> 'info', 
+                    'bloqueado'=> 'danger',
+                    'mantenimiento'=> 'warning'
+                };
+                
+                return '<span class="badge bg-'. $class .'">'. $estado .'</span>';
+            })
             ->addColumn('action', function(Dispositivo $dispositivo){
                 return '
                     <button class="btn btn-sm btn-dark edit-btn" onclick="('.$dispositivo->id.')" data-id="'.$dispositivo->id.'">
@@ -38,13 +61,27 @@ class DispositivoDataTable extends DataTable
                     </button>
                 ';
             })
+            ->addColumn('foto_url', function(Dispositivo $dispositivo){
+                
+                if($dispositivo->foto_url){
+
+                    $url = asset('storage/'.$dispositivo->foto_url);
+
+                    return '<img
+                        src="'.$url.'"
+                        width="50" height="50"
+                        style="cursor:pointer"
+                        onclick="mostrarImagen(\''.$url.'\')"   
+                    >';
+                }
+            })
             ->setRowAttr([
                 'data-aos' => 'fade-up',   
                 'data-aos-delay' => function ($row) {
                     return $row->id * 50 % 400;
                 },
             ])
-            ->rawColumns(['action'])
+            ->rawColumns(['action', 'estado_condicion', 'estado_uso', 'foto_url'])
             ->setRowId('id');
     }
 

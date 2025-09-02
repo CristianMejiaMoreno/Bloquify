@@ -14,7 +14,7 @@
   Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam natus et doloribus neque delectus, culpa, quasi adipisci, quos vel deleniti unde. Corrupti architecto vero quaerat repellat tenetur sequi! Natus, sunt.
 </p>
 
-<button class="btn-crear" onclick="" id="btnCrear">Crear dispositivo</button>
+<button class="btn-crear" onclick="modalDispositivo()" id="btnCrear">Crear dispositivo</button>
 
 @include('Dispositivo.partials.modal')
 
